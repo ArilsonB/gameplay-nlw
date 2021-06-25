@@ -5,11 +5,12 @@ import { Background } from '../Background';
 import { styles } from './styles';
 
 type Props = ModalProps & {
+  signOutModal?: boolean;
   children: ReactNode;
   closeModal: () => void;
 }
 
-export function ModalView({ children, closeModal, ...rest }: Props) {
+export function ModalView({ signOutModal = false, children, closeModal, ...rest }: Props) {
   return (
     <Modal
       transparent
@@ -17,7 +18,7 @@ export function ModalView({ children, closeModal, ...rest }: Props) {
       statusBarTranslucent
       {...rest}>
       <TouchableWithoutFeedback onPress={closeModal}>
-        <View style={styles.overlay}>
+        <View style={signOutModal ? styles.overlayTwo : styles.overlay}>
           <View style={styles.container}>
             <Background>
               <View style={styles.bar} />
