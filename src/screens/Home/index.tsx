@@ -15,11 +15,13 @@ import { styles } from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLLECTION_APPOINTMENTS } from '../../configs/database';
 import { ModalView } from '../../components/ModalView';
+import { SignOut } from '../SignOut';
 
 export function Home() {
   const [category, setCategory] = useState('');
   const [appointments, setAppointments] = useState<AppointmentsProps[]>([]);
   const [loading, setLoading] = useState(true);
+  const [outModal, setOutModal] = useState(false);
 
   const navigation = useNavigation();
 
@@ -36,7 +38,11 @@ export function Home() {
   }
 
   function handleCloseModal() {
+    setOutModal(false);
+  }
 
+  function handleOpenModal() {
+    setOutModal(true);
   }
 
   async function loadAppointments() {
@@ -60,7 +66,7 @@ export function Home() {
   return (
     <Background>
       <View style={styles.header}>
-        <Profile />
+        <Profile openModal={handleOpenModal} />
         <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
       <CategorySelect
@@ -88,8 +94,8 @@ export function Home() {
             />
           </>
       }
-      <ModalView signOutModal visible={true} closeModal={handleCloseModal}>
-        <View />
+      <ModalView signOutModal visible={outModal} closeModal={handleCloseModal}>
+        <SignOut closeModal={handleCloseModal} />
       </ModalView>
     </Background>
   );

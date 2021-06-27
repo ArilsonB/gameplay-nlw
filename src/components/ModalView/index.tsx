@@ -18,8 +18,8 @@ export function ModalView({ signOutModal = false, children, closeModal, ...rest 
       statusBarTranslucent
       {...rest}>
       <TouchableWithoutFeedback onPress={closeModal}>
-        <View style={signOutModal ? styles.overlayTwo : styles.overlay}>
-          <View style={styles.container}>
+        <View style={styles.overlay}>
+          <View style={signOutModal ? styles.containerOut : styles.container}>
             <Background>
               <View style={styles.bar} />
               {children}

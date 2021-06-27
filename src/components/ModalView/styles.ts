@@ -4,16 +4,16 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 100,
+  },
+  containerOut: {
+    position: 'absolute',
+    bottom: 0,
+    height: 175,
+    width: '100%',
   },
   overlay: {
     flex: 1,
-    backgroundColor: theme.colors.overlay,
-  },
-  overlayTwo: {
-    position: 'absolute',
-    height: 200,
-    width: '100%',
-    bottom: 0,
     backgroundColor: theme.colors.overlay,
   },
   bar: {
