@@ -1,5 +1,4 @@
 import React from 'react';
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { View, Text, Pressable, PressableProps } from 'react-native';
 
 import { styles } from './styles';
@@ -13,7 +12,7 @@ type Props = PressableProps & {
 export function ButtonOut({ title, isColored = false, style = {}, ...rest }: Props) {
   return (
     <Pressable
-      style={[style, styles.container]}
+      style={[styles.container, style]}
       {...rest}>
       <View style={isColored ? styles.contentColored : styles.content}>
         <Text style={styles.title}>
