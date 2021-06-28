@@ -24,7 +24,7 @@ export function Guilds({ handleGuildSelect }: Props) {
 
   useEffect(() => {
     fetchGuilds();
-  }, [guilds]);
+  }, []);
 
   return (
     <View style={styles.container}>
